@@ -60,6 +60,23 @@ class LinkedList {
   }
 
   /**
+   * @description 反转链表
+   */
+  reverse() {
+    let prev = null;
+    let current = this.head.next;
+
+    while (current) {
+      const next = current.next;
+      current.next = prev;
+      prev = current;
+      current = next;
+    }
+
+    this.head.next = prev;
+  }
+
+  /**
    * @description 根据value找到节点
    * @param {*} value
    * @returns
@@ -132,3 +149,7 @@ console.log('----- find value test -----');
 console.log('find by value 3: ', ll.findByValue(3));
 console.log('find by value 0: ', ll.findByValue(0));
 console.log('find by value 20: ', ll.findByValue(20));
+
+console.log('----- reverse test -----');
+ll.reverse();
+ll.print();
