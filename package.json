@@ -1,0 +1,29 @@
+{
+  "name": "algo",
+  "version": "1.0.0",
+  "description": "learning algo",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/sadmark/algo.git"
+  },
+  "author": "sadmark",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/sadmark/algo/issues"
+  },
+  "homepage": "https://github.com/sadmark/algo#readme",
+  "dependencies": {
+    "lodash": "^4.17.15"
+  },
+  "devDependencies": {
+    "cz-conventional-changelog": "^3.1.0"
+  },
+  "config": {
+    "commitizen": {
+      "path": "./node_modules/cz-conventional-changelog"
+    }
+  }
+}
