@@ -16,4 +16,4 @@ function bubbleSort(arr) {
 const arr = getRandomArray();
 console.log('origin:',arr);
 bubbleSort(arr);
-console.log(arr);
+console.log('sorted:', arr);

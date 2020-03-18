@@ -18,4 +18,4 @@ function insertion(arr) {
 const arr = getRandomArray(10);
 console.log('origin:',arr);
 insertion(arr);
-console.log(arr);
+console.log('sorted:', arr);
