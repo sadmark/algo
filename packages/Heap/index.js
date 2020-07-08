@@ -1,7 +1,33 @@
 // 大顶堆
 class Heap {
+  static sort(arr) {
+    if (arr[0] !== null) {
+      arr.unshift(null);
+    }
+    const currentIndex = arr.length - 1;
+    const heap = new Heap();
+    heap._arr = arr;
+    heap._currentIndex = currentIndex;
+
+    // 建堆完成
+    for (let i = parseInt(currentIndex / 2, 10); i > 0; i -= 1) {
+      heap.heapify(i);
+    }
+
+    // 开始排序
+    // 由于是大顶堆
+    // 所以不停的删除顶部元素插入到最后就行了
+    let i = currentIndex;
+    while (i > 1) {
+      heap.swap(1, i);
+      i -= 1;
+      heap.heapify(1, i);
+    }
+
+    return arr.slice(1);
+  }
+
   constructor() {
-    // 下标0为空位
     this._arr = [null];
     this._currentIndex = 0;
   }
@@ -45,18 +71,23 @@ class Heap {
     this.heapify(1);
   }
 
-  heapify(index) {
+  heapify(i, n = this._currentIndex) {
+    const arr = this._arr;
     while (true) {
-      let i = index;
-      if (i * 2 <= this._currentIndex && this._arr[i] < this._arr[i * 2]) {
-        i *= 2;
+      let index = i;
+      if (i * 2 <= n && arr[i] < arr[i * 2]) {
+        index = i * 2;
       }
-      if (i * 2 + 1 <= this._currentIndex && this._arr[i] < this._arr[i * 2 + 1]) {
-        i = i * 2 + 1;
+      if (i * 2 + 1 <= n && arr[index] < arr[i * 2 + 1]) {
+        index = i * 2 + 1;
       }
-      if (i === index) break; // 堆化完毕
-      this.swap(index, i);
-      index = i; // 关键一步
+      if (i === index) {
+        // 堆化完毕
+        break;
+      }
+      // 交换元素
+      this.swap(i, index);
+      i = index;
     }
   }
 }
